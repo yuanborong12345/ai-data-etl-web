@@ -1,0 +1,544 @@
+/* ============================================================
+   HomePage - AI DataETL Platform
+   react-bits components: Orb, GooeyNav, SpotlightCard, FadeContent
+   Design: Dark tech + Emerald accent + Asymmetric layout
+   ============================================================ */
+
+/* ---- Layout Base ---- */
+.home-layout {
+    min-height: 100dvh;
+    background: #0a0a0b;
+    color: #fafafa;
+}
+
+/* ---- Navigation (GooeyNav wrapper) ---- */
+.home-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 68px;
+    background: rgba(10, 10, 11, 0.82);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+}
+
+.logo-mark.small {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+}
+
+.logo-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fafafa;
+    letter-spacing: -0.02em;
+}
+
+/* GooeyNav overrides for our dark theme */
+.nav-inner .gooey-nav-container nav ul {
+    gap: 1.5em;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-inner .gooey-nav-container nav ul li {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.nav-inner .gooey-nav-container nav ul li a {
+    padding: 0.5em 0.8em;
+    color: inherit;
+    text-decoration: none;
+}
+.nav-inner .gooey-nav-container nav ul li a:visited {
+    color: inherit;
+}
+
+.nav-inner .gooey-nav-container nav ul li.active {
+    color: #0a0a0b;
+}
+
+.nav-inner .gooey-nav-container .effect.text {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.nav-inner .gooey-nav-container .effect.text.active {
+    color: #0a0a0b;
+}
+
+.nav-cta {
+    flex-shrink: 0;
+}
+
+/* ---- Hero Section ---- */
+.hero-section {
+    position: relative;
+    min-height: 100dvh;
+    overflow: hidden;
+}
+
+.orb-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.orb-bg .orb-container {
+    width: 100%;
+    height: 100%;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 120px 32px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100dvh;
+    pointer-events: none;
+}
+
+.hero-overlay > * {
+    pointer-events: auto;
+}
+
+.hero-eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #10b981;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.18);
+    width: fit-content;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 4.5vw, 3.75rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.03em !important;
+    color: #fafafa !important;
+    margin-bottom: 24px !important;
+    max-width: 700px;
+}
+
+.hero-accent {
+    background: linear-gradient(135deg, #10b981, #34d399, #6ee7b7, #34d399);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: accentFlow 4s ease infinite;
+}
+
+@keyframes accentFlow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.hero-desc {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+    color: #71717a !important;
+    max-width: 520px;
+    margin-bottom: 36px !important;
+}
+
+.hero-actions {
+    margin-top: 8px;
+}
+
+.hero-ghost-btn {
+    border-color: rgba(255, 255, 255, 0.14) !important;
+    color: #a1a1aa !important;
+    background: transparent !important;
+}
+
+.hero-ghost-btn:hover {
+    border-color: rgba(255, 255, 255, 0.28) !important;
+    color: #fafafa !important;
+}
+
+/* ---- Section Container ---- */
+.section-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* ---- Section Header ---- */
+.section-header {
+    margin-bottom: 64px;
+    max-width: 640px;
+}
+
+.section-title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.025em !important;
+    line-height: 1.15 !important;
+    color: #fafafa !important;
+    margin-bottom: 20px !important;
+}
+
+.section-desc {
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+    color: #71717a !important;
+    max-width: 560px;
+}
+
+/* ---- Features Bento Grid ---- */
+.features-section {
+    padding: 120px 0;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: dense;
+    gap: 20px;
+}
+
+.bento-card {
+    padding: 36px;
+}
+
+.bento-card.card-1 {
+    grid-column: span 2;
+}
+
+.bento-card.card-4 {
+    grid-column: span 2;
+}
+
+/* SpotlightCard overrides */
+.bento-card.card-spotlight {
+    background: #141416;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.bento-card.card-spotlight:hover {
+    border-color: rgba(16, 185, 129, 0.25);
+    background: #18181b;
+}
+
+.bento-icon {
+    font-size: 28px;
+    color: #10b981;
+    margin-bottom: 20px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(16, 185, 129, 0.08);
+}
+
+.bento-title {
+    font-size: 20px !important;
+    font-weight: 650 !important;
+    color: #fafafa !important;
+    margin-bottom: 12px !important;
+}
+
+.bento-desc {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+    color: #71717a !important;
+    max-width: 100%;
+    margin-bottom: 0 !important;
+}
+
+/* ---- Pipeline ---- */
+.pipeline-section {
+    padding: 120px 0;
+}
+
+.pipeline-track {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    position: relative;
+}
+
+.pipeline-track::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    right: 24px;
+    height: 2px;
+    background: linear-gradient(90deg,
+            rgba(16, 185, 129, 0.6),
+            rgba(16, 185, 129, 0.2),
+            rgba(16, 185, 129, 0.6));
+}
+
+.pipeline-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.step-index {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #141416;
+    border: 2px solid #10b981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #10b981;
+    margin-bottom: 20px;
+    font-variant-numeric: tabular-nums;
+}
+
+.step-label {
+    font-size: 17px;
+    font-weight: 650;
+    color: #fafafa;
+    margin-bottom: 6px;
+}
+
+.step-sub {
+    font-size: 13px;
+    color: #71717a;
+}
+
+/* ---- CTA ---- */
+.cta-section {
+    padding: 0 0 120px;
+}
+
+.cta-card {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.06), rgba(5, 150, 105, 0.02));
+    border: 1px solid rgba(16, 185, 129, 0.12);
+    border-radius: 28px;
+    padding: 80px 64px;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    color: #fafafa !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 16px !important;
+}
+
+.cta-desc {
+    font-size: 17px !important;
+    color: #71717a !important;
+    max-width: 520px;
+    margin: 0 auto 36px !important;
+    line-height: 1.7 !important;
+}
+
+.cta-ghost-btn {
+    border-color: rgba(255, 255, 255, 0.14) !important;
+    color: #a1a1aa !important;
+    background: transparent !important;
+}
+
+/* ---- Footer ---- */
+.home-footer {
+    background: #0a0a0b;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 64px 32px 32px;
+}
+
+.footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    padding-bottom: 48px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-logo-text {
+    color: #71717a !important;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 80px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-col-title {
+    color: #fafafa !important;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.footer-col a {
+    color: #71717a;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+    color: #fafafa;
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .bento-card.card-1,
+    .bento-card.card-4 {
+        grid-column: span 1;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-links {
+        gap: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-inner {
+        padding: 0 16px;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .hero-overlay {
+        padding: 100px 16px 64px;
+    }
+
+    .hero-title {
+        font-size: 2rem !important;
+    }
+
+    .section-container {
+        padding: 0 16px;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pipeline-track {
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+    }
+
+    .pipeline-track::before {
+        display: none;
+    }
+
+    .pipeline-step {
+        flex-direction: row;
+        gap: 16px;
+        text-align: left;
+    }
+
+    .step-index {
+        margin-bottom: 0;
+    }
+
+    .cta-card {
+        padding: 48px 24px;
+    }
+
+    .cta-title {
+        font-size: 1.75rem !important;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+    .hero-accent {
+        animation: none;
+    }
+}
