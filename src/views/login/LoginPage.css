@@ -1,0 +1,160 @@
+/* ============================================================
+   LoginPage - Split screen: Orb + Brand | Login Form
+   Design: Dark theme + Emerald accent + Clean form
+   ============================================================ */
+
+.login-layout {
+    display: flex;
+    min-height: 100dvh;
+    background: #0a0a0b;
+}
+
+/* ---- Left: Brand + Orb ---- */
+.login-brand {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.login-orb {
+    position: absolute;
+    inset: 0;
+}
+
+.login-brand-text {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 48px;
+}
+
+.login-brand-text .logo-mark {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 0 32px rgba(16, 185, 129, 0.3);
+    margin: 0 auto 24px;
+}
+
+.brand-name {
+    color: #fafafa !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 12px !important;
+}
+
+.brand-tagline {
+    color: #71717a !important;
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+    max-width: 280px;
+    margin: 0 auto !important;
+}
+
+/* ---- Right: Login Form ---- */
+.login-form-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    min-width: 0;
+}
+
+.login-form-wrap {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-form-header {
+    margin-bottom: 40px;
+}
+
+.login-title {
+    color: #fafafa !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 8px !important;
+}
+
+.login-sub {
+    color: #71717a !important;
+    font-size: 15px !important;
+    margin-bottom: 0 !important;
+}
+
+/* ---- Form ---- */
+.login-input {
+    background: #141416 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    color: #fafafa !important;
+}
+
+.login-input:hover {
+    border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+.login-input:focus,
+.login-input.ant-input-affix-wrapper-focused {
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15) !important;
+}
+
+.login-input input {
+    color: #fafafa !important;
+    background: transparent !important;
+}
+
+.login-input input::placeholder {
+    color: #52525b !important;
+}
+
+.login-input .ant-input-prefix {
+    color: #52525b !important;
+    margin-right: 10px;
+}
+
+/* Ant Design Form label override */
+.login-form-wrap .ant-form-item-label > label {
+    color: #a1a1aa !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+.login-form-wrap .ant-form-item-explain-error {
+    font-size: 13px !important;
+}
+
+/* Submit button */
+.login-btn {
+    height: 48px !important;
+    border-radius: 999px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin-top: 8px;
+}
+
+/* Footer text */
+.login-footer-text {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.login-footer-text a {
+    color: #10b981;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.login-footer-text a:hover {
+    color: #34d399;
+}
+

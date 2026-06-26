@@ -1,0 +1,22 @@
+/* Hanging badge - fixed below nav, transparent background */
+.badge-wrapper {
+    position: fixed;
+    top: 60px;
+    right: 120px;
+    width: 240px;
+    height: 340px;
+    z-index: 40;
+    pointer-events: auto;
+    background: transparent;
+}
+
+/* Ensure the Three.js canvas fills the wrapper and stays transparent */
+.badge-wrapper .lanyard-wrapper {
+    width: 240px;
+    height: 340px;
+    background: transparent !important;
+}
+
+.badge-wrapper canvas {
+    background: transparent !important;
+}

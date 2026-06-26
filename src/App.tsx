@@ -1,7 +1,17 @@
+import { useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import { ConfigProvider } from 'antd'
 import HomePage from './views/home/HomePage'
+import LoginPage from './views/login/LoginPage'
+import useUserStore from './store/userStore'
 
 function App() {
+    const initAuth = useUserStore((s) => s.initAuth)
+
+    useEffect(() => {
+        initAuth()
+    }, [initAuth])
+
     return (
         <ConfigProvider
             theme={{
@@ -22,7 +32,10 @@ function App() {
                 },
             }}
         >
-            <HomePage />
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/login" element={<LoginPage />} />
+            </Routes>
         </ConfigProvider>
     )
 }

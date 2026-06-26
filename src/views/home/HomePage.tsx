@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Button, Typography, Space } from 'antd'
 import {
     ThunderboltOutlined,
@@ -9,6 +10,9 @@ import Orb from '../../components/react-bits/Orb/Orb'
 import GooeyNav from '../../components/react-bits/GooeyNav/GooeyNav'
 import SpotlightCard from '../../components/react-bits/SpotlightCard/SpotlightCard'
 import FadeContent from '../../components/react-bits/FadeContent/FadeContent'
+import UserMenu from '../../components/UserMenu'
+import LanyardBadge from '../../components/LanyardBadge'
+import useUserStore from '../../store/userStore'
 import './HomePage.css'
 
 const { Title, Paragraph, Text } = Typography
@@ -50,8 +54,12 @@ const pipelineSteps = [
 ]
 
 export default function HomePage() {
+    const isLoggedIn = useUserStore((s) => s.isLoggedIn)
+
     return (
         <div className="home-layout">
+            {/* Decorative hanging badge - only when logged in */}
+            <LanyardBadge />
             {/* GooeyNav - fixed top navigation with particle burst effect */}
             <header className="home-nav">
                 <div className="nav-inner">
@@ -65,9 +73,15 @@ export default function HomePage() {
                         particleCount={15}
                         colors={[1, 2, 3, 1, 2, 3, 1, 5]}
                     />
-                    <Button type="primary" size="medium" ghost className="nav-cta">
-                        sign in
-                    </Button>
+                    {isLoggedIn ? (
+                        <UserMenu />
+                    ) : (
+                        <Link to="/login">
+                            <Button type="primary" size="medium" ghost className="nav-cta">
+                                sign in
+                            </Button>
+                        </Link>
+                    )}
                 </div>
             </header>
 

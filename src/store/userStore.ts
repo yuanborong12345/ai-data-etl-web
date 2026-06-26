@@ -11,6 +11,7 @@ interface UserState {
 
     login: (data: { userAccount: string; userPassword: string }) => Promise<void>
     logout: () => Promise<void>
+    initAuth: () => Promise<void>
     fetchCurrentUser: () => Promise<void>
     updateProfile: (data: UserUpdateRequest) => Promise<void>
     clearUser: () => void
@@ -40,6 +41,21 @@ const useUserStore = create<UserState>()(
                 } finally {
                     get().clearUser()
                 }
+            },
+            // 应用启动时检查本地 token 并恢复登录态
+            initAuth: async () => {
+                const storedToken =
+                    localStorage.getItem('user_token') ||
+                    get().token
+                if (!storedToken) return
+                // 确保 Axios 拦截器能读到 token
+                if (!localStorage.getItem('user_token')) {
+                    localStorage.setItem('user_token', storedToken)
+                }
+                if (!get().token) {
+                    set({ token: storedToken })
+                }
+                await get().fetchCurrentUser()
             },
             //获取当前用户
             fetchCurrentUser: async () => {

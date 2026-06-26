@@ -1,0 +1,89 @@
+/* UserMenu trigger in nav */
+.user-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 4px 12px 4px 4px;
+    border-radius: 999px;
+    transition: background 0.2s ease;
+}
+
+.user-trigger:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.user-trigger-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fafafa;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Dropdown overlay - frosted glass */
+.user-dropdown-overlay .ant-popover-inner {
+    background: rgba(20, 20, 22, 0.88) !important;
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 16px !important;
+    box-shadow:
+        0 0 0 1px rgba(16, 185, 129, 0.04),
+        0 8px 32px rgba(0, 0, 0, 0.4) !important;
+    padding: 0 !important;
+}
+
+/* Dropdown content */
+.user-dropdown {
+    width: 200px;
+    padding: 8px;
+}
+
+.dropdown-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+}
+
+.dropdown-user-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.dropdown-name {
+    font-size: 14px !important;
+    color: #fafafa !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dropdown-role {
+    font-size: 11px !important;
+    color: #71717a !important;
+}
+
+.dropdown-divider {
+    margin: 4px 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.dropdown-logout {
+    padding: 10px 12px !important;
+    height: auto !important;
+    border-radius: 10px !important;
+    color: #a1a1aa !important;
+    font-size: 13px !important;
+    justify-content: flex-start !important;
+}
+
+.dropdown-logout:hover {
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: #ef4444 !important;
+}
