@@ -4,8 +4,6 @@ import {
     RobotOutlined,
     BarChartOutlined,
     DatabaseOutlined,
-    ApiOutlined,
-    SafetyOutlined,
 } from '@ant-design/icons'
 import Orb from '../../components/react-bits/Orb/Orb'
 import GooeyNav from '../../components/react-bits/GooeyNav/GooeyNav'
@@ -24,8 +22,8 @@ const navItems = [
 const features = [
     {
         icon: <DatabaseOutlined />,
-        title: '多源数据接入',
-        desc: '支持 Excel、CSV、API、数据库等 20 余种数据源，拖拽上传即可开始解析，零代码完成数据入库。',
+        title: '数据源接入',
+        desc: 'Excel 文件拖拽上传即可开始解析，零代码完成数据入库。',
     },
     {
         icon: <ThunderboltOutlined />,
@@ -42,20 +40,10 @@ const features = [
         title: '结构化报告输出',
         desc: '一键生成可视化分析报告，支持 PDF、HTML、Markdown 多格式导出，自动适配移动端与打印布局。',
     },
-    {
-        icon: <ApiOutlined />,
-        title: '开放 API 集成',
-        desc: 'RESTful API 与 Webhook 双通道，无缝接入企业现有 BI 工具、钉钉/飞书/企微通知与数据看板。',
-    },
-    {
-        icon: <SafetyOutlined />,
-        title: '企业级安全保障',
-        desc: 'RBAC 权限控制、数据脱敏、操作审计日志、传输加密，满足 SOC2 与等保合规要求。',
-    },
 ]
 
 const pipelineSteps = [
-    { label: '数据上传', sub: 'Excel / CSV / API' },
+    { label: '数据上传', sub: 'Excel 文件上传' },
     { label: 'ETL 清洗', sub: '自动解析与校验' },
     { label: 'AI 分析', sub: '大模型智能计算' },
     { label: '报告输出', sub: '可视化结构化交付' },
@@ -77,7 +65,7 @@ export default function HomePage() {
                         particleCount={15}
                         colors={[1, 2, 3, 1, 2, 3, 1, 5]}
                     />
-                    <Button type="primary" size="small" className="nav-cta">
+                    <Button type="primary" size="medium" ghost className="nav-cta">
                         sign in
                     </Button>
                 </div>
@@ -102,15 +90,11 @@ export default function HomePage() {
                     </Title>
                     <Paragraph className="hero-desc">
                         从 Excel 上传到 AI 分析报告，全链路自动化。
-                        不需要写一行 SQL，不需要懂机器学习，
                         把你的数据交给智能管道，专注业务决策本身。
                     </Paragraph>
                     <Space size="middle" className="hero-actions">
-                        <Button type="primary" size="large">
+                        <Button type="primary" size="large" className="cta-ghost-btn">
                             立即开始
-                        </Button>
-                        <Button size="large" className="hero-ghost-btn">
-                            查看演示
                         </Button>
                     </Space>
                 </div>
@@ -124,7 +108,7 @@ export default function HomePage() {
                             <Title level={2} className="section-title">
                                 覆盖数据全生命周期的
                                 <br />
-                                六大核心能力
+                                四大核心能力
                             </Title>
                             <Paragraph className="section-desc">
                                 从接入到交付，每一个环节都经过工程化打磨，而不是功能堆砌。
@@ -184,14 +168,11 @@ export default function HomePage() {
                                 准备好开始了吗？
                             </Title>
                             <Paragraph className="cta-desc">
-                                免费试用 14 天，无需绑定信用卡。接入你的第一份数据，看到第一份 AI 报告，只需 5 分钟。
+                                接入你的第一份数据，看到第一份 AI 报告，只需 5 分钟。
                             </Paragraph>
                             <Space size="middle">
-                                <Button type="primary" size="large">
-                                    免费试用
-                                </Button>
-                                <Button size="large" className="cta-ghost-btn">
-                                    预约演示
+                                <Button type="primary" size="large" className="cta-ghost-btn">
+                                    立刻开始
                                 </Button>
                             </Space>
                         </div>

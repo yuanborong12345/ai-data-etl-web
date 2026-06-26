@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useRef, useEffect, useState } from 'react';
 import './GooeyNav.css';
 
@@ -132,8 +131,14 @@ const GooeyNav = ({
     if (!navRef.current || !containerRef.current) return;
     const activeLi = navRef.current.querySelectorAll('li')[activeIndex];
     if (activeLi) {
-      updateEffectPosition(activeLi);
-      textRef.current?.classList.add('active');
+      // Delay initial measurement until after browser layout/paint
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          updateEffectPosition(activeLi);
+          textRef.current?.classList.add('active');
+          filterRef.current?.classList.add('active');
+        });
+      });
     }
 
     const resizeObserver = new ResizeObserver(() => {

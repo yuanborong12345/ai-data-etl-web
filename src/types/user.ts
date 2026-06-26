@@ -27,10 +27,6 @@ export interface UserVO {
     status: number
 }
 
-// ============================================================
-// Request DTOs
-// ============================================================
-
 export interface UserLoginRequest {
     userAccount: string
     userPassword: string
